@@ -4,6 +4,7 @@ import one.digitalinnovation.personapi.dto.request.PersonDto;
 import one.digitalinnovation.personapi.dto.response.MessageResponseDto;
 import one.digitalinnovation.personapi.entity.Person;
 import one.digitalinnovation.personapi.mapper.PersonMapper;
+import one.digitalinnovation.personapi.exception.PersonNotFoundException;
 import one.digitalinnovation.personapi.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,4 +40,10 @@ public class PersonService {
                 .map(personMapper::toDto)
                 .collect(Collectors.toList());
     }
+
+    public PersonDto findById(Long id) throws PersonNotFoundException {
+        var person = personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
+        return personMapper.toDto(person);
+    }
+
 }
