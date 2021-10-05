@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>15</java.version>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+		<org.junit.platform.version>1.8.0</org.junit.platform.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -52,6 +53,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+			<version>${org.junit.platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
 			<version>${org.mapstruct.version}</version>
@@ -62,7 +69,6 @@
 			<version>${org.mapstruct.version}</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -91,5 +97,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
